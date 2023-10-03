@@ -3,6 +3,8 @@ import wollok.game.*
 const velocidad = 250
 
 object juego{
+	
+	
 
 	method configurar(){
 		game.width(12)
@@ -60,14 +62,15 @@ object reloj {
 	method position() = game.at(1, game.height()-1)
 	
 	method pasarTiempo() {
-		//COMPLETAR
+		tiempo+=1 
 	}
 	method iniciar(){
 		tiempo = 0
-		game.onTick(100,"tiempo",{self.pasarTiempo()})
+		game.onTick(1000,"tiempo",{self.pasarTiempo()})
 	}
 	method detener(){
-		//COMPLETAR
+		
+		game.removeTickEvent("tiempo")
 	}
 }
 
@@ -121,11 +124,14 @@ object dino {
 	method position() = position
 	
 	method saltar(){
-		//COMPLETAR
+		self.subir()
+		game.schedule(500, { self.bajar() })
 	}
 	
 	method subir(){
+		
 		position = position.up(1)
+		
 	}
 	
 	method bajar(){
@@ -134,6 +140,7 @@ object dino {
 	method morir(){
 		game.say(self,"¡Auch!")
 		vivo = false
+		reloj.detener()
 	}
 	method iniciar() {
 		vivo = true
