@@ -25,7 +25,7 @@ object juego{
 		dino.iniciar()
 		reloj.iniciar()
 		cactus.iniciar()
-		game.onTick(1000, "CACTUS", { cactus.mover() })
+		game.onTick(200, "CACTUS", { cactus.mover() })
 	}
 	
 	method jugar(){
@@ -102,9 +102,8 @@ object cactus {
 		}
 	} 
 	
-	
     method detener(){
-			game.stop()
+		game.stop()
 	}
 }
 
