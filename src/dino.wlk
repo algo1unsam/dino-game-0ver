@@ -102,6 +102,7 @@ object cactus {
 		}
 	} 
 	
+	
     method detener(){
 			game.stop()
 	}
