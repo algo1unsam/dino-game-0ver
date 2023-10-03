@@ -102,8 +102,9 @@ object cactus {
 		}
 	} 
 	
-    method detener(){
-		game.stop()
+    method detener(){ //no vimos que estaba juego.terminar(), F
+    	game.addVisual(gameOver)
+    	game.schedule(500, {game.stop()})
 	}
 }
 
