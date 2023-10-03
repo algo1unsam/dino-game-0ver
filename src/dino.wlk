@@ -4,6 +4,7 @@ const velocidad = 250
 
 object juego{
 	
+	
 
 	method configurar(){
 		game.width(12)
