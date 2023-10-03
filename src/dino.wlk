@@ -23,6 +23,7 @@ object juego{
 		dino.iniciar()
 		reloj.iniciar()
 		cactus.iniciar()
+		game.onTick(1000, "CACTUS", { cactus.mover() })
 	}
 	
 	method jugar(){
@@ -85,14 +86,21 @@ object cactus {
 	}
 	
 	method mover(){
-		//COMPLETAR
+		if(position == game.origin().up(1)){
+			position = self.posicionInicial()
+		}
+		position = self.position().left(1)
+		self.chocar()
 	}
 	
-	method chocar(){
-		//COMPLETAR
-	}
+	method chocar() {
+		if(self.position() == dino.position()){
+			self.detener()
+		}
+	} 
+	
     method detener(){
-		//COMPLETAR
+			game.stop()
 	}
 }
 
